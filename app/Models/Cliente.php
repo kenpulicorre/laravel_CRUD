@@ -21,5 +21,10 @@ class Cliente extends Model
             //use App\models\Agente; //se coloca al inicio oc linea 7
             // return $this->hasOne(Agente::class);
     }
+    public function ciudad(){
+
+             return $this->belongsTo('App\Models\Ciudad');
+
+    }
 
 }

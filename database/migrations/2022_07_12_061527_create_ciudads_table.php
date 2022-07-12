@@ -15,7 +15,25 @@ return new class extends Migration
     {
         Schema::create('ciudads', function (Blueprint $table) {
             $table->id();
+            $table->string("nombre");
+            $table->string("departamento");
+
+        //------------relacion con cliente
+            $table->unsignedBigInteger('cliente_id')->nullable()->unique();
+            $table->foreign('cliente_id')
+            ->references('id')->on('clientes')
+            ->onDelete('set null') ;//borra en ambos modelos
+            //  ->onUpdate('cascade')
+
+
+
+
+
+
+
             $table->timestamps();
+
+
         });
     }
 

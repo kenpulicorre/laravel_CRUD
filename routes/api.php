@@ -50,3 +50,10 @@ Route::post('/clientes','App\Http\Controllers\ClienteController@store');
 Route::put('/clientes/{id}','App\Http\Controllers\ClienteController@update');
 Route::delete('/clientes/{id}','App\Http\Controllers\ClienteController@destroy');
 //-----fin registros por rutas clientes----
+//-----fregistros por rutas ciudades----
+ Route::get('/ciudades','App\Http\Controllers\CiudadController@index');
+Route::get('/ciudades/{id}','App\Http\Controllers\CiudadController@show');
+Route::post('/ciudades','App\Http\Controllers\CiudadController@store');
+Route::put('/ciudades/{id}','App\Http\Controllers\CiudadController@update');
+Route::delete('/ciudades/{id}','App\Http\Controllers\CiudadController@destroy');
+//-----fin registros por rutas clientes----

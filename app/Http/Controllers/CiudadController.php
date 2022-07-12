@@ -15,6 +15,10 @@ class CiudadController extends Controller
     public function index()
     {
         //
+         $ciudades=Ciudad::all();
+        return $ciudades;
+
+
     }
 
     /**
@@ -36,6 +40,12 @@ class CiudadController extends Controller
     public function store(Request $request)
     {
         //
+        $ciudad=new Ciudad();
+        $ciudad->nombre=$request->nombre;
+        $ciudad->departamento= $request->departamento;
+        $ciudad->cliente_id=$request->cliente_id;
+        $ciudad->save();
+        return $ciudad;
     }
 
     /**
@@ -44,9 +54,10 @@ class CiudadController extends Controller
      * @param  \App\Models\Ciudad  $ciudad
      * @return \Illuminate\Http\Response
      */
-    public function show(Ciudad $ciudad)
+    public function show($ciudad)
     {
         //
+        return Ciudad::find($ciudad);
     }
 
     /**
@@ -67,9 +78,15 @@ class CiudadController extends Controller
      * @param  \App\Models\Ciudad  $ciudad
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ciudad $ciudad)
+    public function update(Request $request, $id)
     {
         //
+        $ciudad=Ciudad::findOrFail($request->id);
+       $ciudad->nombre=$request->nombre;
+        $ciudad->departamento= $request->departamento;
+         $ciudad->cliente_id=$request->cliente_id;
+        $ciudad->save();
+        return $ciudad;
     }
 
     /**
@@ -78,8 +95,10 @@ class CiudadController extends Controller
      * @param  \App\Models\Ciudad  $ciudad
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ciudad $ciudad)
+    public function destroy(Request $request)
     {
         //
+        $ciudad=Ciudad::destroy($request->id);
+        return $ciudad;
     }
 }

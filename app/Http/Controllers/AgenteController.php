@@ -54,11 +54,17 @@ class AgenteController extends Controller
     public function store(Request $request)
     {
         //
-        $agente=new Agente();
+       try {
+        //code...
+         $agente=new Agente();
         $agente->nombre=$request->nombre;
         $agente->cedula= $request->cedula;
         $agente->save();
         return $agente;
+       } catch (\Throwable $th) {
+        //throw $th;
+        return $th;
+       }
 
 
 

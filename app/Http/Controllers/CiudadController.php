@@ -40,12 +40,19 @@ class CiudadController extends Controller
     public function store(Request $request)
     {
         //
-        $ciudad=new Ciudad();
+        try {
+            $ciudad=new Ciudad();
         $ciudad->nombre=$request->nombre;
         $ciudad->departamento= $request->departamento;
         $ciudad->cliente_id=$request->cliente_id;
         $ciudad->save();
         return $ciudad;
+        } catch (\Throwable $th) {
+            //throw $th;
+            return $th;
+        }
+
+
     }
 
     /**

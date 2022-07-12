@@ -48,6 +48,8 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         //
+        try {
+            //code...
         $cliente=new Cliente();
         $cliente->nombre=$request->nombre;
         $cliente->cedula= $request->cedula;
@@ -56,6 +58,14 @@ class ClienteController extends Controller
         $cliente->ciudad=$request->ciudad;
         $cliente->agente_id=$request->agente_id;
         $cliente->save();
+        return $cliente;
+        } catch (\Throwable $th) {
+            //throw $th;
+        return $th;
+
+
+        }
+
 
 
     }

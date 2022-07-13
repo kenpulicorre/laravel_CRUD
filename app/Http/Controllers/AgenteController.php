@@ -16,16 +16,16 @@ class AgenteController extends Controller
     public function index()
     {
         //
-         //$agentes=Agente::all();
+         $agentes=Agente::all();
 
       //---------prueba join
 
 
-           $agentes=DB::table('agentes')
-         ->join('clientes','agente_id', '=','agentes.id')
-        // ->select('agentes.id','agentes.nombre',)
-        ->select('agentes.*','clientes.id as cliente_id','clientes.nombre as cliente_nombre')
-         ->get();
+        //    $agentes=DB::table('agentes')
+        //  ->join('clientes','agente_id', '=','agentes.id')
+        // // ->select('agentes.id','agentes.nombre',)
+        // ->select('agentes.*','clientes.id as cliente_id','clientes.nombre as cliente_nombre')
+        //  ->get();
 
 
 
